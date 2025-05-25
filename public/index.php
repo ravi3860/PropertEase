@@ -317,7 +317,7 @@ switch (strtolower($page)) {
         $memberModel = new Member();
         $member = $memberModel->getMemberDetailById($_SESSION['id']);
 
-        $agentId = $_POST['agent_id'] ?? null;  // 👈 now coming from POST
+        $agentId = $_POST['agent_id'] ?? null;  
 
         if (!$agentId) {
             $_SESSION['error'] = "No agent selected.";
@@ -372,7 +372,7 @@ switch (strtolower($page)) {
 
     case 'processpaymentmember':
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['plan_name'], $_POST['price'])) {
-            $memberId = $_SESSION['id']; // Assuming member is logged in
+            $memberId = $_SESSION['id']; 
             $plan = htmlspecialchars($_POST['plan_name']);
             $price = (float)htmlspecialchars($_POST['price']);
 
