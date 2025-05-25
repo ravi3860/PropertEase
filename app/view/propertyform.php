@@ -19,7 +19,7 @@
     <main class="flex-grow flex items-center justify-center py-8">
         <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
             <h2 class="text-2xl font-bold text-teal-800 mb-6 text-center">Add New Property</h2>
-            <form action="<?= BASE_URL ?>/public/index.php?page=createproperty" method="POST" class="space-y-6">
+            <form action="<?= BASE_URL ?>/public/index.php?page=createproperty" method="POST" enctype="multipart/form-data" class="space-y-6">
                 <div>
                     <label for="title" class="block text-teal-700 font-medium mb-2">Property Title</label>
                     <input type="text" id="title" name="title" value="<?= htmlspecialchars($property['title'] ?? '') ?>" required class="w-full p-3 border border-teal-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 hover:border-teal-300 transition duration-200" placeholder="Enter property title">
@@ -37,8 +37,8 @@
                     <textarea id="description" name="description" class="w-full p-3 border border-teal-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 hover:border-teal-300 transition duration-200 h-24 resize-none" placeholder="Enter property description"><?= htmlspecialchars($property['description'] ?? '') ?></textarea>
                 </div>
                 <div>
-                    <label for="images" class="block text-teal-700 font-medium mb-2">Images (URLs separated by commas)</label>
-                    <input type="text" id="images" name="images" value="<?= htmlspecialchars($property['images'] ?? '') ?>" class="w-full p-3 border border-teal-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 hover:border-teal-300 transition duration-200" placeholder="Enter image URLs (e.g., url1, url2)">
+                    <label for="images" class="block text-teal-700 font-medium mb-2">Upload Property Image</label>
+                    <input type="file" id="images" name="images" accept="image/*" required class="w-full p-3 border border-teal-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-400 hover:border-teal-300 transition duration-200">
                 </div>
                 <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-teal-700 text-white py-3 rounded-lg hover:from-teal-600 hover:to-teal-800 transition duration-300">Submit Property</button>
             </form>

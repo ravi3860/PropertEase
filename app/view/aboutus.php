@@ -30,7 +30,6 @@
       <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif;">Who We Are</h2>
       <h3 class="text-lg font-semibold text-gray-800 mb-2" style="font-family: 'Poppins', sans-serif;">Empowering Property Seekers with Trust and Technology</h3>
       <p class="text-gray-700 mb-6" style="font-family: 'Poppins', sans-serif;">We're a digital real estate platform connecting buyers, sellers and agents — making property transaction simple, smart and secure.</p>
-      <a href="index.php?page=register" class="inline-block bg-black text-white font-semibold px-6 py-2 rounded-md hover:bg-gray-800 transition" style="font-family: 'Poppins', sans-serif;">Read More</a>
     </div>
 
     <div class="mt-10 md:mt-0 relative w-full max-w-md">

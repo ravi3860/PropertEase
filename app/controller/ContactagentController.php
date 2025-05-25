@@ -12,11 +12,14 @@ class ContactagentController
         $this->model = new ContactagentModel();       
     }
 
+    
+     // Handle sending a contact request from a member to an agent.
+    
     public function sendRequest()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            /* session already started in index.php */
+            
             $memberId = $_SESSION['id']    ?? null;   
             $agentId  = $_POST['agent_id'] ?? null;
 
@@ -38,7 +41,8 @@ class ContactagentController
         }
     }
 
-     // Show active client requests for logged-in agent
+    //Show active client requests for the logged-in agent.
+     
     public function showClientRequests() 
     {
         if (session_status() === PHP_SESSION_NONE) session_start();
@@ -54,6 +58,9 @@ class ContactagentController
         }
     }
 
+        
+     //Update the status of a client request (accept or decline).
+     
     public function updateRequestStatus()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

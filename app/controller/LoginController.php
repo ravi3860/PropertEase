@@ -20,41 +20,41 @@ class LoginController
         $this->memberModel = new Member($this->db->connection());
     }
 
+    // Handles user login based on role
     public function login(): void
-{
-    $username     = $_POST['username'] ?? '';
-    $password     = $_POST['password'] ?? '';
-    $selectedRole = strtolower($_POST['role'] ?? '');
+    {
+        $username     = $_POST['username'] ?? '';
+        $password     = $_POST['password'] ?? '';
+        $selectedRole = strtolower($_POST['role'] ?? '');
 
-    $user = false;
-    $actualRole = '';
+        $user = false;
+        $actualRole = '';
 
-    if ($selectedRole === 'admin') {
-        $user = (new Admin())->login($username, $password);
-        $actualRole = $user ? 'admin' : '';
-    } elseif ($selectedRole === 'agent') {
-        $user = (new Agent())->login($username, $password);
-        $actualRole = $user ? 'agent' : '';
-    } elseif ($selectedRole === 'member') {
-        $user = (new Member())->login($username, $password);
-        $actualRole = $user ? 'member' : '';
-    }
+        if ($selectedRole === 'admin') {
+            $user = (new Admin())->login($username, $password);
+            $actualRole = $user ? 'admin' : '';
+        } elseif ($selectedRole === 'agent') {
+            $user = (new Agent())->login($username, $password);
+            $actualRole = $user ? 'agent' : '';
+        } elseif ($selectedRole === 'member') {
+            $user = (new Member())->login($username, $password);
+            $actualRole = $user ? 'member' : '';
+        }
 
-    if ($user && $actualRole === $selectedRole) {
-        $_SESSION['id']       = $user['id'];
-        $_SESSION['username'] = $user['username'];
-        $_SESSION['role']     = $actualRole;
-        header("Location: index.php?page={$actualRole}dashboard");
+        if ($user && $actualRole === $selectedRole) {
+            $_SESSION['id']       = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role']     = $actualRole;
+            header("Location: index.php?page={$actualRole}dashboard");
+            exit;
+        }
+
+        $_SESSION['login_error'] = 'Invalid username, password, or role.';
+        header("Location: index.php?page=login");
         exit;
     }
 
-    $_SESSION['login_error'] = 'Invalid username, password, or role.';
-    header("Location: index.php?page=login");
-    exit;
-}
-
-
-
+    // Logs out the current user and destroys the session
     public function logout()
     {
         session_unset();
@@ -64,6 +64,7 @@ class LoginController
         exit;
     }
 
+    // Registers a new user based on role
     public function register()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

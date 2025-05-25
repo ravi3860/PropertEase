@@ -35,7 +35,6 @@
     <p class="text-lg md:text-xl text-gray-800 mb-6" style="font-family: 'Poppins', sans-serif;">Connect with trusted professionals to guide your property journey</p>
     <p class="text-gray-800 max-w-xl mx-auto md:mx-0 mb-8" style="font-family: 'Poppins', sans-serif;">Browse experienced real estate agents ready to assist with buying, selling, or renting. Choose the one that fits your goals and location best.</p>
     <br>
-    <a href="index.php?page=register" class="inline-block bg-black text-white font-semibold px-6 py-2 rounded-md hover:bg-gray-800 transition" style="font-family: 'Poppins', sans-serif;">Find an Agent</a>
   </div>
 </section>
 
