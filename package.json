@@ -1,0 +1,16 @@
+{
+  "name": "propertease",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev" : "npx tailwindcss -i ./tailwind.css -o ./public/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.6",
+    "tailwindcss": "^4.1.6"
+  }
+}
