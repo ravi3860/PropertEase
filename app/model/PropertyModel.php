@@ -114,9 +114,13 @@ class Property
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
            
-    public function getTopThreeProperties() 
+    public function getTopThreeProperties()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM property ORDER BY id DESC LIMIT 3");
+        $sql = "SELECT id, title, location, description, price, images
+                FROM property
+                ORDER BY id DESC                     
+                LIMIT 3";
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

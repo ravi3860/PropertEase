@@ -52,10 +52,9 @@
 
             <!-- image with dim + price badge -->
             <div class="relative">
-              <img src="<?= $property['image'] ?? 'https://via.placeholder.com/800x500?text=No+Image'; ?>"
+              <img src="<?= explode(',', $property['images'])[0] ?>"
                    alt="<?= htmlspecialchars($property['title']); ?>"
-                   class="w-full h-56 object-cover transition duration-300
-                          group-hover:scale-105">
+                   class="w-full h-56 object-cover transition duration-300 group-hover:scale-105">
               
               <!-- price badge -->
               <span
@@ -89,16 +88,13 @@
                 <i class="fas fa-arrow-right"></i>
               </a>
             </div>
-
-          </div>
-        
+          </div>      
         <?php endforeach; ?>
       <?php else: ?>
         <p class="col-span-full text-center text-gray-600">
           No properties available right now.
         </p>
       <?php endif; ?>
-
     </div>
   </div>
 </section>
