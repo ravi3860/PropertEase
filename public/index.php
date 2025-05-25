@@ -8,7 +8,7 @@ switch (strtolower($page)) {
     case 'home':
         require_once '../app/controller/PropertyController.php';
         $propertyController = new PropertyController();
-        $propertyController->getTopThree(); // This should set $_SESSION['top_rated_properties']
+        $propertyController->getTopThree(); 
         require '../app/view/home.php';
         break;
 
