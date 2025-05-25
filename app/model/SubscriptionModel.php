@@ -67,7 +67,7 @@ class SubscriptionModel
 
      public function getActiveSubscriptionByMember($memberId)
     {
-        $sql = "SELECT * FROM subscriptions WHERE member_id = ? AND status = 'active' LIMIT 1";
+        $sql = "SELECT * FROM member_subscriptions WHERE member_id = ? AND status = 'active' LIMIT 1";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$memberId]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -76,7 +76,7 @@ class SubscriptionModel
     // Get subscription history by member ID
     public function getSubscriptionHistoryByMember($memberId)
     {
-        $sql = "SELECT * FROM subscriptions WHERE member_id = ? ORDER BY start_date DESC";
+        $sql = "SELECT * FROM member_subscriptions WHERE member_id = ? ORDER BY start_date DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$memberId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -85,7 +85,7 @@ class SubscriptionModel
     // Deactivate current active subscription for member
     public function deactivateCurrentSubscriptionByMember($memberId)
     {
-        $sql = "UPDATE subscriptions SET status = 'cancelled' WHERE member_id = ? AND status = 'active'";
+        $sql = "UPDATE member_subscriptions SET status = 'cancelled' WHERE member_id = ? AND status = 'active'";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([$memberId]);
     }
@@ -93,7 +93,7 @@ class SubscriptionModel
     // Create new subscription for member
     public function createSubscriptionForMember($memberId, $planName, $price, $startDate, $endDate)
     {
-        $sql = "INSERT INTO subscriptions (member_id, plan_name, price, start_date, end_date, status) VALUES (?, ?, ?, ?, ?, 'active')";
+        $sql = "INSERT INTO member_subscriptions (member_id, plan_name, price, start_date, end_date, status) VALUES (?, ?, ?, ?, ?, 'active')";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([$memberId, $planName, $price, $startDate, $endDate]);
     }
@@ -101,7 +101,7 @@ class SubscriptionModel
     // Cancel subscription by subscription ID for member
     public function cancelSubscriptionByMember($subscriptionId, $memberId)
     {
-        $sql = "UPDATE subscriptions SET status = 'cancelled' WHERE id = ? AND member_id = ? AND status = 'active'";
+        $sql = "UPDATE member_subscriptions SET status = 'cancelled' WHERE id = ? AND member_id = ? AND status = 'active'";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([$subscriptionId, $memberId]);
     }

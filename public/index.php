@@ -40,6 +40,10 @@ switch (strtolower($page)) {
         require '../app/view/paymentform.php';
         break;
 
+    case 'paymentformmember':
+        require '../app/view/paymentformmember.php';
+        break;
+
     case 'propertform':
         require '../app/view/propertyform.php';
         break;
@@ -349,6 +353,22 @@ switch (strtolower($page)) {
         require_once '../app/controller/SubscriptionController.php';
         (new SubscriptionController())
             ->cancelSubscription((int)$_POST['subscription_id'], (int)$_SESSION['id']);
+        break;
+
+    case 'processpaymentmember':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['plan_name'], $_POST['price'])) {
+            $memberId = $_SESSION['id']; // Assuming member is logged in
+            $plan = htmlspecialchars($_POST['plan_name']);
+            $price = (float)htmlspecialchars($_POST['price']);
+
+            require_once './app/controller/SubscriptionController.php';
+            $subscriptionController = new SubscriptionController();
+            $subscriptionController->buyPlanForMember($memberId, $plan, $price);
+        } else {
+            $_SESSION['error'] = "Invalid member payment request.";
+            header("Location: index.php?page=memberdashboard");
+            exit;
+        }
         break;
 
     default:

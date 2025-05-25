@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['plan_name'], $_POST['
     $plan = htmlspecialchars($_POST['plan_name']);
     $price = htmlspecialchars($_POST['price']);
 } else {
+   
     // Redirect to plans or subscriptions page if POST data missing
     header("Location: index.php?page=subscriptions");
     exit;
@@ -47,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['plan_name'], $_POST['
             </div>
 
             <!-- Payment Form -->
-            <form method="POST" action="index.php?page=processpayment" class="space-y-6">
+            <form method="POST" action="index.php?page=processpaymentmember" class="space-y-6">
                 <input type="hidden" name="plan_name" value="<?= $plan ?>" />
                 <input type="hidden" name="price" value="<?= $price ?>" />
 
@@ -100,10 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['plan_name'], $_POST['
                     </div>
                 </div>
 
-                <button
-                    type="submit"
-                    class="w-full bg-black text-white py-3 rounded-md font-semibold hover:bg-gray-800 transition"
-                >
+                <button type="submit" class="w-full bg-black text-white py-3 rounded-md font-semibold hover:bg-gray-800 transition">
                     Pay $<?= $price ?> Now
                 </button>
             </form>

@@ -158,9 +158,12 @@
         </ul>
       </div>
       <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$0</p>
-      <button class="mt-4 bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">
-          Buy Now
-        </button>
+      <br>
+      <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
+        <input type="hidden" name="plan_name" value="Starter Seller">
+        <input type="hidden" name="price"     value="14.99">
+        <button type="submit" class="bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">Subscribe</button>
+    </form>
     </div>
 
     <!-- Plan 2 - Starter Seller -->
@@ -173,9 +176,12 @@
         </ul>
       </div>
       <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$14.99</p>
-      <button class="mt-4 bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">
-          Buy Now
-        </button>
+      <br>
+       <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
+        <input type="hidden" name="plan_name" value="Starter Seller">
+        <input type="hidden" name="price"     value="14.99">
+        <button type="submit" class="bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">Subscribe</button>
+    </form>
     </div>
 
     <!-- Plan 3 - Pro Seller -->
@@ -188,9 +194,12 @@
         </ul>
       </div>
       <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$29.99</p>
-      <button class="mt-4 bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">
-          Buy Now
-        </button>
+      <br>
+       <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
+      <input type="hidden" name="plan_name" value="Starter Seller">
+      <input type="hidden" name="price"     value="14.99">
+      <button type="submit" class="bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">Subscribe</button>
+    </form>
     </div>
 
     <!-- Plan 4 - Elite Seller -->
@@ -203,9 +212,12 @@
         </ul>
       </div>
       <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$49.99</p>
-      <button class="mt-4 bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">
-          Buy Now
-        </button>
+      <br>
+       <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
+        <input type="hidden" name="plan_name" value="Free Seller">
+        <input type="hidden" name="price"     value="0">
+        <button type="submit" class="bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">Subscribe</button>
+    </form>
     </div>
 
   </div>
