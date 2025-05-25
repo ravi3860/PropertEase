@@ -84,7 +84,7 @@
               <a href="index.php?page=browseproperties"
                  class="inline-flex items-center gap-2 mt-3 text-yellow-700 font-semibold
                         hover:text-yellow-900 transition" style="font-family: 'Poppins', sans-serif;">
-                View Details
+                View More Properties
                 <i class="fas fa-arrow-right"></i>
               </a>
             </div>

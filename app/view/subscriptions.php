@@ -175,8 +175,8 @@
         <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
       <?php endif; ?>
       <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
-        <input type="hidden" name="plan_name" value="Starter Seller">
-        <input type="hidden" name="price"     value="14.99">
+        <input type="hidden" name="plan_name" value="Free Seller">
+        <input type="hidden" name="price"     value="0">
         <button type="submit" class="bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">Subscribe</button>
     </form>
     </div>
@@ -217,8 +217,8 @@
         <?php if (isset($_SESSION['error'])): ?>
         <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
       <?php endif; ?>
-      <input type="hidden" name="plan_name" value="Starter Seller">
-      <input type="hidden" name="price"     value="14.99">
+      <input type="hidden" name="plan_name" value="Pro Seller">
+      <input type="hidden" name="price"     value="29.99">
       <button type="submit" class="bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">Subscribe</button>
     </form>
     </div>
@@ -238,8 +238,8 @@
         <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
       <?php endif; ?>
        <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
-        <input type="hidden" name="plan_name" value="Free Seller">
-        <input type="hidden" name="price"     value="0">
+        <input type="hidden" name="plan_name" value="Elite Seller">
+        <input type="hidden" name="price"     value="49.99">
         <button type="submit" class="bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">Subscribe</button>
     </form>
     </div>
