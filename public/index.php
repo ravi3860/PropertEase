@@ -361,7 +361,7 @@ switch (strtolower($page)) {
             $plan = htmlspecialchars($_POST['plan_name']);
             $price = (float)htmlspecialchars($_POST['price']);
 
-            require_once './app/controller/SubscriptionController.php';
+            require_once '../app/controller/SubscriptionController.php';
             $subscriptionController = new SubscriptionController();
             $subscriptionController->buyPlanForMember($memberId, $plan, $price);
         } else {

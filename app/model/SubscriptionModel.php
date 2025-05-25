@@ -65,9 +65,12 @@ class SubscriptionModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-     public function getActiveSubscriptionByMember($memberId)
+  public function getActiveSubscriptionByMember($memberId)
     {
-        $sql = "SELECT * FROM member_subscriptions WHERE member_id = ? AND status = 'active' LIMIT 1";
+        $sql = "SELECT * FROM member_subscriptions 
+                WHERE member_id = ? 
+                AND CURDATE() BETWEEN start_date AND end_date 
+                LIMIT 1";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$memberId]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -85,7 +88,7 @@ class SubscriptionModel
     // Deactivate current active subscription for member
     public function deactivateCurrentSubscriptionByMember($memberId)
     {
-        $sql = "UPDATE member_subscriptions SET status = 'cancelled' WHERE member_id = ? AND status = 'active'";
+        $sql = "UPDATE member_subscriptions SET is_active = 0 WHERE member_id = ? AND is_active = 1";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([$memberId]);
     }
@@ -93,7 +96,7 @@ class SubscriptionModel
     // Create new subscription for member
     public function createSubscriptionForMember($memberId, $planName, $price, $startDate, $endDate)
     {
-        $sql = "INSERT INTO member_subscriptions (member_id, plan_name, price, start_date, end_date, status) VALUES (?, ?, ?, ?, ?, 'active')";
+        $sql = "INSERT INTO member_subscriptions (member_id, plan_name, price, start_date, end_date, is_active) VALUES (?, ?, ?, ?, ?, 1)";
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([$memberId, $planName, $price, $startDate, $endDate]);
     }
