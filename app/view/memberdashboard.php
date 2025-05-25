@@ -177,39 +177,60 @@
             </section>
 
            <!-- Subscription Status Section -->
-            
-            <section id="subscription" class="section bg-orange-50 p-8 rounded-xl shadow-lg">
-                <div class="flex items-center mb-6">
-                    <div class="w-16 h-16 bg-orange-200 rounded-full mr-4"></div>
-                    <h2 class="text-2xl font-bold text-orange-800"><?= htmlspecialchars($member['username'] ?? '') ?></h2>
-                </div>
-                <h3 class="text-xl font-semibold mb-4 text-orange-700">Subscription Status</h3>
+            <section id="subscription" class="section bg-orange-50 p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-orange-800 mb-6"><?= htmlspecialchars($member['username'] ?? 'Member') ?>'s Subscriptions</h2>
 
-                <?php if (!empty($subscriptions)): ?>
-                    <?php foreach ($subscriptions as $sub): ?>
-                        <div class="bg-white border border-orange-200 rounded-lg p-4 mb-4 shadow-sm">
-                            <p class="text-gray-700">PLAN: <?= htmlspecialchars($sub['plan_name']) ?></p>
-                            <p class="text-gray-700">PRICE: $<?= number_format($sub['price'], 2) ?></p>
-                            <p class="text-gray-700">Start Date: <?= htmlspecialchars($sub['start_date']) ?></p>
-                            <p class="text-gray-700">End Date: <?= htmlspecialchars($sub['end_date'] ?? 'Ongoing') ?></p>
+                <!-- Active Subscription Info -->
+                <?php if (!empty($activeSubscription)): ?>
+                    <div class="bg-yellow-100 p-6 rounded-lg shadow-md mb-6">
+                        <h3 class="text-xl font-bold mb-2">Active Plan: <?= htmlspecialchars($activeSubscription['plan_name']) ?></h3>
+                        <p><strong>Price:</strong> $<?= number_format($activeSubscription['price'], 2) ?></p>
+                        <p><strong>Start Date:</strong> <?= htmlspecialchars($activeSubscription['start_date']) ?></p>
+                        <p><strong>End Date:</strong> <?= htmlspecialchars($activeSubscription['end_date'] ?? 'Ongoing') ?></p>
 
-                            <?php if ($sub['is_active']): ?>
-                                <p class="text-yellow-600 font-semibold bg-yellow-100 inline-block px-2 py-1 rounded">STATUS: Active</p>
-                                <form method="post" action="cancel_subscription.php" class="mt-4">
-                                    <input type="hidden" name="subscription_id" value="<?= (int)$sub['id'] ?>">
-                                    <button type="submit" 
-                                        class="w-full bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300"
-                                        onclick="return confirm('Are you sure you want to cancel this subscription?');">
-                                        Cancel Subscription
-                                    </button>
-                                </form>
-                            <?php else: ?>
-                                <p class="text-gray-600 font-semibold bg-gray-100 inline-block px-2 py-1 rounded">STATUS: Inactive</p>
-                            <?php endif; ?>
-                        </div>
-                    <?php endforeach; ?>
+                        <form method="POST" action="index.php?page=cancel_subscription" class="mt-4">
+                            <button type="submit" name="subscription_id" value="<?= (int)$activeSubscription['id'] ?>"
+                                class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md font-semibold"
+                                onclick="return confirm('Are you sure you want to cancel this subscription?');">
+                                Cancel Subscription
+                            </button>
+                        </form>
+                    </div>
                 <?php else: ?>
-                    <p class="text-gray-700">You have no subscriptions at the moment.</p>
+                    <p class="text-yellow-600 italic mb-6">You currently have no active subscriptions.</p>
+                <?php endif; ?>
+
+                <!-- Subscription History -->
+                <?php if (!empty($subscriptionHistory)): ?>
+                    <h3 class="text-2xl font-semibold mb-3">Subscription History</h3>
+                    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                        <thead class="bg-yellow-200 text-yellow-900">
+                            <tr>
+                                <th class="py-2 px-4 text-left">Plan</th>
+                                <th class="py-2 px-4 text-left">Price</th>
+                                <th class="py-2 px-4 text-left">Start Date</th>
+                                <th class="py-2 px-4 text-left">End Date</th>
+                                <th class="py-2 px-4 text-left">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($subscriptionHistory as $sub): ?>
+                                <tr class="border-b hover:bg-yellow-50">
+                                    <td class="py-2 px-4"><?= htmlspecialchars($sub['plan_name']) ?></td>
+                                    <td class="py-2 px-4">$<?= number_format($sub['price'], 2) ?></td>
+                                    <td class="py-2 px-4"><?= htmlspecialchars($sub['start_date']) ?></td>
+                                    <td class="py-2 px-4"><?= htmlspecialchars($sub['end_date'] ?? 'N/A') ?></td>
+                                    <td class="py-2 px-4">
+                                        <?= $sub['is_active'] 
+                                            ? '<span class="text-green-600 font-bold">Active</span>' 
+                                            : '<span class="text-gray-600">Inactive</span>' ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <p class="text-gray-600 italic">No subscription history available.</p>
                 <?php endif; ?>
             </section>
         </main>
