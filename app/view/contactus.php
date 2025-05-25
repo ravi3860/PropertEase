@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <title>PropertEase - Sign Up</title>
   <link href="<?php echo BASE_URL . '/public/styles.css'; ?>" rel="stylesheet">
+  <link href="<?php echo BASE_URL . '/tailwind.css'; ?>" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -35,48 +36,47 @@
   </div>
 </section>
 
-<!-- Contact Us section -->
-<div class="bg-yellow-50 p-8 rounded-2xl shadow-xl text-center max-w-3xl mx-auto mt-10 mb-10">
-  <h1 class="text-3xl font-extrabold text-gray-900 mb-6 flex items-center justify-center" style="font-family: 'Poppins', sans-serif;">
+<!-- Contact Us Section -->
+<div class="contact-section">
+  <h1 class="section-title flex items-center justify-center" style="font-family: 'Poppins', sans-serif;">
     Get in Touch With Us ☎️
   </h1>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 text-left">
     <div>
-      <label class="block text-sm font-semibold text-gray-800 mb-1" style="font-family: 'Poppins', sans-serif;">Full Name</label>
-      <input type="text" placeholder="Enter here"
-        class="w-full p-3 rounded-lg bg-yellow-100 border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+      <label class="form-label" style="font-family: 'Poppins', sans-serif;">Full Name</label>
+      <input type="text" placeholder="Enter here" class="form-input" />
     </div>
     <div>
-      <label class="block text-sm font-semibold text-gray-800 mb-1" style="font-family: 'Poppins', sans-serif;">Email Address</label>
-      <input type="email" placeholder="Enter here"
-        class="w-full p-3 rounded-lg bg-yellow-100 border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+      <label class="form-label" style="font-family: 'Poppins', sans-serif;">Email Address</label>
+      <input type="email" placeholder="Enter here" class="form-input" />
     </div>
     <div>
-      <label class="block text-sm font-semibold text-gray-800 mb-1" style="font-family: 'Poppins', sans-serif;">Phone Number</label>
-      <input type="tel" placeholder="Enter here"
-        class="w-full p-3 rounded-lg bg-yellow-100 border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+      <label class="form-label" style="font-family: 'Poppins', sans-serif;">Phone Number</label>
+      <input type="tel" placeholder="Enter here" class="form-input" />
     </div>
     <div>
-      <label class="block text-sm font-semibold text-gray-800 mb-1" style="font-family: 'Poppins', sans-serif;">Subject</label>
-      <input type="text" placeholder="Enter here"
-        class="w-full p-3 rounded-lg bg-yellow-100 border border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+      <label class="form-label" style="font-family: 'Poppins', sans-serif;">Subject</label>
+      <input type="text" placeholder="Enter here" class="form-input" />
     </div>
   </div>
+
   <div class="mb-6 text-left">
-    <label class="block text-sm font-semibold text-gray-800 mb-1" style="font-family: 'Poppins', sans-serif;">Message</label>
-    <textarea placeholder="Enter here"
-      class="w-full p-3 rounded-lg bg-yellow-100 border border-yellow-300 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+    <label class="form-label" style="font-family: 'Poppins', sans-serif;">Message</label>
+    <textarea placeholder="Enter here" class="form-textarea"></textarea>
   </div>
+
   <div class="mb-6">
-    <button class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition" style="font-family: 'Poppins', sans-serif;">
+    <button class="btn-submit" style="font-family: 'Poppins', sans-serif;">
       Submit Now
     </button>
   </div>
 
   <!-- Contact Info -->
-  <div class="bg-yellow-100 p-5 rounded-xl shadow-inner">
-    <p class="text-md font-semibold mb-2 text-gray-800 flex items-center justify-center" style="font-family: 'Poppins', sans-serif;">Contact Details 📍</p>
+  <div class="faq-card shadow-inner">
+    <p class="text-md font-semibold mb-2 text-gray-800 flex items-center justify-center" style="font-family: 'Poppins', sans-serif;">
+      Contact Details 📍
+    </p>
     <ul class="text-sm text-gray-700 text-left leading-relaxed">
       <li style="font-family: 'Poppins', sans-serif;">• <strong>Email:</strong> info@PropertyEase.com</li>
       <li style="font-family: 'Poppins', sans-serif;">• <strong>Phone:</strong> +94 77 123 4567</li>
@@ -84,35 +84,35 @@
       <li style="font-family: 'Poppins', sans-serif;">• <strong>Business Hours:</strong> Mon - Fri, 9 AM - 6 PM</li>
     </ul>
   </div>
-
 </div>
 
 <!-- Feedback & Rating Section -->
 <section class="bg-gradient-to-b from-yellow-100 to-yellow-300 px-4 py-12">
   <div class="max-w-xl mx-auto bg-yellow-50 p-6 rounded-xl shadow-lg">
-
     <h2 class="text-center text-lg font-semibold text-gray-900 mb-4" style="font-family: 'Poppins', sans-serif;">
       Tell us what you loved—or<br />how we can do better.
     </h2>
 
     <textarea
       placeholder="Enter here"
-      class="w-full bg-yellow-100 p-4 rounded-lg shadow-md border border-yellow-200 placeholder-gray-500 text-sm mb-6 resize-none h-28 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      class="form-textarea bg-yellow-100 h-28 shadow-md border-yellow-200 placeholder-gray-500 text-sm"
     ></textarea>
 
     <div class="mb-4">
-      <p class="text-base font-semibold mb-2 text-gray-800" style="font-family: 'Poppins', sans-serif;">Rate Us Now</p>
-      <div class="flex gap-2 text-2xl text-yellow-600">
-        <span class="cursor-pointer hover:scale-110 transition">★</span>
-        <span class="cursor-pointer hover:scale-110 transition">★</span>
-        <span class="cursor-pointer hover:scale-110 transition">★</span>
-        <span class="cursor-pointer hover:scale-110 transition">★</span>
-        <span class="cursor-pointer hover:scale-110 transition">★</span>
+      <p class="text-base font-semibold mb-2 text-gray-800" style="font-family: 'Poppins', sans-serif;">
+        Rate Us Now
+      </p>
+      <div class="flex gap-2">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
       </div>
     </div>
 
     <div class="text-left">
-      <button class="bg-black text-white px-5 py-2 rounded-md font-medium hover:bg-gray-800 transition">
+      <button class="faq-submit">
         Send Now
       </button>
     </div>
