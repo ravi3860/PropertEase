@@ -15,13 +15,13 @@
       <div>
         <h4 class="font-bold mb-2 text-xl" style="font-family: 'Poppins', sans-serif;">Quick Links</h4>
         <ul class="space-y-1">
-          <li class="font-semibold mb-2"><a href="#">Home</a></li>
-          <li class="font-semibold mb-2"><a href="#">About Us</a></li>
-          <li class="font-semibold mb-2"><a href="#">Browse Properties</a></li>
-          <li class="font-semibold mb-2"><a href="#">Find an Agent</a></li>
-          <li class="font-semibold mb-2"><a href="#">Subscriptions</a></li>
-          <li class="font-semibold mb-2"><a href="#">Home Loans</a></li>
-          <li class="font-semibold mb-2"><a href="#">Contact Us</a></li>
+          <li class="font-semibold mb-2"><a href="/PropertEase/public/index.php?page=home">Home</a></li>
+          <li class="font-semibold mb-2"><a href="/PropertEase/public/index.php?page=aboutus">About Us</a></li>
+          <li class="font-semibold mb-2"><a href="/PropertEase/public/index.php?page=browseproperties">Browse Properties</a></li>
+          <li class="font-semibold mb-2"><a href="/PropertEase/public/index.php?page=findanagent">Find an Agent</a></li>
+          <li class="font-semibold mb-2"><a href="/PropertEase/public/index.php?page=subscriptions">Subscriptions</a></li>
+          <li class="font-semibold mb-2"><a href="/PropertEase/public/index.php?page=homeloans">Home Loans</a></li>
+          <li class="font-semibold mb-2"><a href="/PropertEase/public/index.php?page=contactus">Contact Us</a></li>
         </ul>
       </div>
       <div>
