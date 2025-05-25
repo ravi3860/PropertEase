@@ -67,6 +67,9 @@
             </ul>
         </div>
         <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$0</p>
+        <?php if (isset($_SESSION['error'])): ?>
+        <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
+      <?php endif; ?>
         <form method="POST" action="index.php?page=paymentform" class="mt-4">
             <input type="hidden" name="plan_name" value="Free Agent">
             <input type="hidden" name="price" value="0">
@@ -87,6 +90,9 @@
             </ul>
         </div>
         <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$19.99</p>
+        <?php if (isset($_SESSION['error'])): ?>
+        <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
+      <?php endif; ?>
         <form method="POST" action="index.php?page=paymentform" class="mt-4">
             <input type="hidden" name="plan_name" value="Starter Agent">
             <input type="hidden" name="price" value="19.99">
@@ -107,6 +113,9 @@
             </ul>
         </div>
         <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$39.99</p>
+        <?php if (isset($_SESSION['error'])): ?>
+        <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
+      <?php endif; ?>
         <form method="POST" action="index.php?page=paymentform" class="mt-4">
             <input type="hidden" name="plan_name" value="Pro Agent">
             <input type="hidden" name="price" value="39.99">
@@ -126,6 +135,9 @@
             <li style="font-family: 'Poppins', sans-serif;">• Premium insights, priority in search results and top visibility.</li>
             </ul>
         </div>
+        <?php if (isset($_SESSION['error'])): ?>
+        <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
+      <?php endif; ?>
         <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$59.99</p>
         <form method="POST" action="index.php?page=paymentform" class="mt-4">
             <input type="hidden" name="plan_name" value="Elite Agent">
@@ -159,6 +171,9 @@
       </div>
       <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$0</p>
       <br>
+      <?php if (isset($_SESSION['error'])): ?>
+        <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
+      <?php endif; ?>
       <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
         <input type="hidden" name="plan_name" value="Starter Seller">
         <input type="hidden" name="price"     value="14.99">
@@ -177,6 +192,9 @@
       </div>
       <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$14.99</p>
       <br>
+      <?php if (isset($_SESSION['error'])): ?>
+        <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
+      <?php endif; ?>
        <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
         <input type="hidden" name="plan_name" value="Starter Seller">
         <input type="hidden" name="price"     value="14.99">
@@ -196,6 +214,9 @@
       <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$29.99</p>
       <br>
        <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
+        <?php if (isset($_SESSION['error'])): ?>
+        <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
+      <?php endif; ?>
       <input type="hidden" name="plan_name" value="Starter Seller">
       <input type="hidden" name="price"     value="14.99">
       <button type="submit" class="bg-black text-white px-5 py-2 rounded-md font-semibold hover:bg-gray-800 transition">Subscribe</button>
@@ -213,6 +234,9 @@
       </div>
       <p class="text-2xl font-bold mt-6" style="font-family: 'Poppins', sans-serif;">$49.99</p>
       <br>
+      <?php if (isset($_SESSION['error'])): ?>
+        <p class="text-red-600 text-sm mb-2"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
+      <?php endif; ?>
        <form method="POST" action="index.php?page=paymentformmember" class="mt-4">
         <input type="hidden" name="plan_name" value="Free Seller">
         <input type="hidden" name="price"     value="0">

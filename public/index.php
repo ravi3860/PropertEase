@@ -371,6 +371,23 @@ switch (strtolower($page)) {
         }
         break;
 
+    case 'cancel_subscription_for_member':
+        error_log("POST data: " . print_r($_POST, true));
+        error_log("SESSION data: " . print_r($_SESSION, true));
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['subscription_id'])) {
+            header("Location: index.php?page=memberdashboard");
+            exit;
+        }
+        if (!isset($_SESSION['id'])) {
+            header("Location: index.php?page=login");
+            exit;
+        }
+
+        require_once '../app/controller/SubscriptionController.php';
+        (new SubscriptionController())
+            ->cancelSubscriptionForMember((int)$_POST['subscription_id'], (int)$_SESSION['id']);
+        break;
+
     default:
         http_response_code(404);
         echo "404 - Page not found";

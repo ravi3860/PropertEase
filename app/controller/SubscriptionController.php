@@ -86,10 +86,10 @@ class SubscriptionController
 
     public function cancelSubscriptionForMember(int $subscriptionId, int $memberId): void
     {
-        $ok = $this->model->cancelSubscriptionByMember($subscriptionId, $memberId);
+        $ok = $this->model->cancelSubscriptionByMemberId($subscriptionId, $memberId);
 
         $_SESSION[$ok ? 'success' : 'error'] =
-            $ok ? "Subscription cancelled." : "Could not cancel subscription.";
+        $ok ? "Subscription cancelled." : "Could not cancel subscription.";
 
         header("Location: index.php?page=memberdashboard");
         exit;

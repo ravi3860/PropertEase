@@ -67,10 +67,12 @@ class SubscriptionModel
 
   public function getActiveSubscriptionByMember($memberId)
     {
-        $sql = "SELECT * FROM member_subscriptions 
-                WHERE member_id = ? 
-                AND CURDATE() BETWEEN start_date AND end_date 
-                LIMIT 1";
+         $sql = "SELECT *
+            FROM member_subscriptions
+            WHERE member_id = ?
+              AND is_active = 1           
+            ORDER BY start_date DESC
+            LIMIT 1";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$memberId]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -102,10 +104,22 @@ class SubscriptionModel
     }
 
     // Cancel subscription by subscription ID for member
-    public function cancelSubscriptionByMember($subscriptionId, $memberId)
+    public function cancelSubscriptionByMemberId(int $subId, int $memberId): bool
     {
-        $sql = "UPDATE member_subscriptions SET status = 'cancelled' WHERE id = ? AND member_id = ? AND status = 'active'";
+        $sql = "UPDATE member_subscriptions
+                SET is_active = 0, end_date = CURDATE()
+                WHERE id = :id AND member_id = :member_id AND is_active = 1";
         $stmt = $this->conn->prepare($sql);
-        return $stmt->execute([$subscriptionId, $memberId]);
+        $stmt->bindParam(':id', $subId, PDO::PARAM_INT);
+        $stmt->bindParam(':member_id', $memberId, PDO::PARAM_INT);
+        $result = $stmt->execute();
+        // Check how many rows were affected
+        $rowsAffected = $stmt->rowCount();
+
+        error_log("Cancel Subscription SQL executed, success: " . ($result ? 'true' : 'false') . ", rows affected: $rowsAffected");
+
+        return $result && $rowsAffected > 0;
     }
+
+    
 }

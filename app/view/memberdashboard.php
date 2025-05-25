@@ -188,7 +188,7 @@
                         <p><strong>Start Date:</strong> <?= htmlspecialchars($activeSubscription['start_date']) ?></p>
                         <p><strong>End Date:</strong> <?= htmlspecialchars($activeSubscription['end_date'] ?? 'Ongoing') ?></p>
 
-                        <form method="POST" action="index.php?page=cancel_subscription" class="mt-4">
+                        <form method="POST" action="index.php?page=cancel_subscription_for_member" class="mt-4">
                             <button type="submit" name="subscription_id" value="<?= (int)$activeSubscription['id'] ?>"
                                 class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md font-semibold"
                                 onclick="return confirm('Are you sure you want to cancel this subscription?');">
