@@ -38,7 +38,7 @@
             <!-- Profile Section -->
             <section id="profile" class="section bg-blue-50 p-8 rounded-xl shadow-lg">
                 <div class="flex items-center mb-6">
-                    <div class="w-16 h-16 bg-gray-300 rounded-full mr-4"></div>
+                    <div class="w-16 h-16 bg-blue-800 rounded-full mr-4 flex items-center justify-center text-white font-bold text-xl uppercase shadow"><?= htmlspecialchars(substr($member['username'] ?? '', 0, 1)) ?></div>
                     <h2 class="text-2xl font-bold text-blue-800"><?= htmlspecialchars($member['username'] ?? '') ?></h2>
                 </div>
                 <div class="grid grid-cols-2 gap-4 mb-6">
@@ -125,7 +125,7 @@
             <!-- My Agent Requests Section -->
             <section id="agent" class="section hidden bg-white p-8 rounded-xl shadow-lg">
                 <div class="flex items-center mb-6">
-                    <div class="w-16 h-16 bg-purple-200 rounded-full mr-4"></div>
+                    <div class="w-16 h-16 bg-purple-600 rounded-full mr-4 flex items-center justify-center text-white font-bold text-xl uppercase shadow"><?= htmlspecialchars(substr($member['username'] ?? '', 0, 1)) ?></div>
                     <h2 class="text-2xl font-bold text-purple-800"><?= htmlspecialchars($member['username'] ?? '') ?></h2>
                 </div>
 

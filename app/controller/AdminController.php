@@ -71,6 +71,34 @@ class AdminController
         require_once '../app/view/admindashboard.php'; 
     }
 
+    public function addAdmin()
+    {
+        // Validate inputs
+        $username = trim($_POST['username'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $phone = trim($_POST['phone'] ?? '');
+        $password = $_POST['password'] ?? '';
+
+        if (empty($username) || empty($email) || empty($phone) || empty($password)) {
+            $_SESSION['error'] = "All fields are required.";
+            header("Location: index.php?page=addadmin");
+            exit;
+        }
+
+        require_once '../app/model/AdminModel.php';
+        $adminModel = new Admin();
+
+        $success = $adminModel->addAdmin($username, $password, $email, $phone);
+
+        if (!$success) {
+            $_SESSION['error'] = "Failed to add admin.";
+            header("Location: index.php?page=addadmin");
+            
+            echo "New admin added successfully.";
+            exit;
+        }
+    }
+
     public function update()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {  

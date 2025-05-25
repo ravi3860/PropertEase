@@ -128,7 +128,7 @@
                                     Update Profile
                                 </button>
                             </div>
-                        </form>
+                    </form>
 
                         <!-- Delete & Logout Buttons -->
                         <div class="mt-8 flex justify-between space-x-4">
@@ -147,6 +147,12 @@
                                 </button>
                             </form>
                         </div>
+                        <div class="mt-6">
+                        <a href="index.php?page=addadmin" 
+                        class="block text-center bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-200">
+                            + Add New Admin
+                        </a>
+                    </div>
                     </div>
                 </section>
 

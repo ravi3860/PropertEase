@@ -61,9 +61,7 @@
     </aside>
 
     <!-- Main Content -->
-    <main
-      class="flex-1 p-10 overflow-y-auto bg-white rounded-tl-3xl rounded-bl-3xl shadow-xl"
-    >
+    <main class="flex-1 p-10 overflow-y-auto bg-white rounded-tl-3xl rounded-bl-3xl shadow-xl">
       <h1 class="text-4xl font-extrabold text-yellow-800 mb-10">
         Welcome back, Agent
         <span class="text-yellow-600">
@@ -72,14 +70,10 @@
         !
       </h1>
 
-      <!-- ░░░ PROFILE ░░░ -->
+      <!-- PROFILE -->
       <section id="profile">
         <div class="flex items-center gap-6 mb-12">
-          <img
-            src="<?= BASE_URL ?>/public/img/agent-image.png"
-            alt="Agent Image"
-            class="h-28 w-28 rounded-full border-8 border-yellow-500 object-cover shadow-lg"
-          />
+          <div class="w-16 h-16 bg-yellow-700 rounded-full mr-4 flex items-center justify-center text-white font-bold text-xl uppercase shadow"><?= htmlspecialchars(substr($agent['username'] ?? '', 0, 1)) ?></div>
           <h2 class="text-3xl font-bold text-yellow-700 tracking-wide">
             Profile Details
           </h2>

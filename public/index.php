@@ -288,6 +288,18 @@ switch (strtolower($page)) {
         (new AdminController())->deleteMember();
         break;
 
+    case 'addadmin':
+        require '../app/view/addadmin.php';  
+        break;
+
+    case 'addadmin_submit':
+        require_once '../app/controller/AdminController.php';
+        $controller = new AdminController();
+        $controller->addAdmin();
+        header("Location: index.php?page=admindashboard");
+        exit;
+        break;
+
     case 'findanagent':
         require_once '../app/model/AgentModel.php';
         $agentModel = new Agent();
