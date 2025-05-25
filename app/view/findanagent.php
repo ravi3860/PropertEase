@@ -48,9 +48,7 @@
     <?php foreach ($agents as $agent): ?>
       <div class="flex flex-col items-center text-center">
         <!-- Avatar (placeholder) -->
-        <img src=""
-             alt="<?= htmlspecialchars($agent['username']) ?>"
-             class="w-24 h-24 rounded-full object-cover mb-2">
+        <div class="w-16 h-16 bg-yellow-800 rounded-full mr-4 flex items-center justify-center text-white font-bold text-xl uppercase shadow"><?= htmlspecialchars(substr($agent['username'] ?? '', 0, 1)) ?></div>
 
         <!-- Username -->
         <h4 class="font-bold text-lg font-[Poppins]">
