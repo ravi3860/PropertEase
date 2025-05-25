@@ -98,17 +98,10 @@
     </div>
   </div>
 </section>
+
 <!-- Reviews Section -->
 <section class="bg-gradient-to-b from-yellow-100 to-yellow-300 py-12 px-6 text-center relative">
   <h2 class="text-3xl font-bold mb-10" style="font-family: 'Poppins', sans-serif;">Reviews Example</h2>
-
-  <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-800 z-10">
-    <i class="fas fa-chevron-left"></i>
-  </button>
-
-  <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-800 z-10">
-    <i class="fas fa-chevron-right"></i>
-  </button>
 
   <!-- Review Cards -->
   <div class="grid gap-8 md:grid-cols-3 max-w-7xl mx-auto">
@@ -136,15 +129,6 @@
         “Love how simple and fast everything was. Highly recommend this platform!”
       </p>
     </div>
-  </div>
-  <br>
-  <br>
-  <!-- Carousel Dots -->
-  <div class="flex justify-center mt-8 gap-2">
-    <div class="w-3 h-3 rounded-full bg-gray-600"></div>
-    <div class="w-3 h-3 rounded-full bg-gray-300"></div>
-    <div class="w-3 h-3 rounded-full bg-gray-300"></div>
-    <div class="w-3 h-3 rounded-full bg-gray-300"></div>
   </div>
 </section>
 
