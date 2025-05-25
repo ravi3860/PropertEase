@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    define('BASE_URL', '/PropertEase');   // adjust if your base path is different
+    define('BASE_URL', '/PropertEase');   
 
     // Fetch session messages, assume session already started globally
     $error = $_SESSION['error'] ?? null;

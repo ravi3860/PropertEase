@@ -42,7 +42,6 @@
         </aside>
 
         <?php
-        // Make sure $counts is defined before rendering the dashboard
         $counts = $_SESSION['user_counts'] ?? ['member_count' => 0, 'agent_count' => 0, 'admin_count' => 0];
         ?>
 
@@ -241,16 +240,12 @@
             targetSection.classList.remove('hidden');
         }
     }
-
-
     function updateActiveButton(clickedButton) {
         sidebarButtons.forEach(button => {
             button.classList.remove('active');
         });
         clickedButton.classList.add('active');
     }
-
-    // Add click event listeners to sidebar buttons
     sidebarButtons.forEach(button => {
         button.addEventListener('click', function (e) {
             e.preventDefault();
@@ -259,10 +254,9 @@
             updateActiveButton(this);
         });
     });
-
-    // showing the Dashboard section
     toggleSection('dashboard');
 </script>
+
 <!-- Footer -->
 <?php include_once __DIR__ . '/../view/include/footer.php'; ?>
 

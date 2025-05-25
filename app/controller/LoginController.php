@@ -79,7 +79,7 @@ class LoginController
         $userType = strtolower($userType);
         $additionalInfo = $_POST['additionalInfo'] ?? [];
 
-        $license  = $_POST['additionalInfo']['license_number'] ?? null;      // flat names
+        $license  = $_POST['additionalInfo']['license_number'] ?? null;    
         $agency   = $_POST['additionalInfo']['agency_name']    ?? null;
 
         switch ($userType) {

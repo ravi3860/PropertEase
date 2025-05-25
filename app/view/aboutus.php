@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    define('BASE_URL', '/PropertEase'); // Adjust if your base path is different
+    define('BASE_URL', '/PropertEase');
 ?>
 <head>
     <meta charset="UTF-8">

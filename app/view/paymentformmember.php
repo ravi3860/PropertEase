@@ -7,8 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['plan_name'], $_POST['
     $plan = htmlspecialchars($_POST['plan_name']);
     $price = htmlspecialchars($_POST['price']);
 } else {
-   
-    // Redirect to plans or subscriptions page if POST data missing
     header("Location: index.php?page=subscriptions");
     exit;
 }

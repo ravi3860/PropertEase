@@ -18,8 +18,6 @@ class PropertyController
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             return false;
         }
-
-        // Assign input fields
         $this->propertyModel->title = $_POST['title'] ?? '';
         $this->propertyModel->location = $_POST['location'] ?? '';
         $this->propertyModel->price = $_POST['price'] ?? '';
@@ -39,17 +37,14 @@ class PropertyController
                 return false;
             }
 
-            // Ensure upload directory exists
             $uploadDir = __DIR__ . '/../../public/uploads/';
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0755, true);
             }
 
-            // Create unique file name
             $newFileName = uniqid('property_', true) . '.' . $extension;
             $targetPath = $uploadDir . $newFileName;
 
-            // Move uploaded file
             if (move_uploaded_file($tmpName, $targetPath)) {
                 $this->propertyModel->images = 'uploads/' . $newFileName;
             } else {
@@ -87,7 +82,7 @@ class PropertyController
         }
 
         // Handle image upload if a new file is provided
-        $imagePath = $postData['images'] ?? ''; // existing image path from hidden input
+        $imagePath = $postData['images'] ?? ''; 
 
         if (isset($_FILES['images']) && $_FILES['images']['error'] === UPLOAD_ERR_OK) {
             $imageTmpPath = $_FILES['images']['tmp_name'];
