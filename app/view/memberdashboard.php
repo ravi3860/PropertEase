@@ -30,7 +30,7 @@
             <button onclick="showSection('profile')" class="w-full py-3 mb-2 bg-yellow-400 text-black font-semibold rounded hover:bg-yellow-500">My Profile</button>
             <button onclick="showSection('properties')" class="w-full py-3 mb-2 bg-yellow-400 text-black font-semibold rounded hover:bg-yellow-500">My Properties</button>
             <button onclick="showSection('agent')" class="w-full py-3 mb-2 bg-yellow-400 text-black font-semibold rounded hover:bg-yellow-500">Agent Request Status</button>
-            <button onclick="showSection('loan')" class="w-full py-3 mb-2 bg-yellow-400 text-black font-semibold rounded hover:bg-yellow-500">Subscription Status</button>
+            <button onclick="showSection('subscription')" class="w-full py-3 mb-2 bg-yellow-400 text-black font-semibold rounded hover:bg-yellow-500">Subscription Status</button>
         </aside>
 
         <!-- Main Content -->
@@ -176,35 +176,41 @@
                 </div>
             </section>
 
-
-            <!-- Loan Request Status Section -->
-            <section id="loan" class="section hidden bg-orange-50 p-8 rounded-xl shadow-lg">
+           <!-- Subscription Status Section -->
+            
+            <section id="subscription" class="section bg-orange-50 p-8 rounded-xl shadow-lg">
                 <div class="flex items-center mb-6">
                     <div class="w-16 h-16 bg-orange-200 rounded-full mr-4"></div>
                     <h2 class="text-2xl font-bold text-orange-800"><?= htmlspecialchars($member['username'] ?? '') ?></h2>
                 </div>
                 <h3 class="text-xl font-semibold mb-4 text-orange-700">Subscription Status</h3>
-                <div class="bg-white border border-orange-200 rounded-lg p-4 mb-4 shadow-sm">
-                    <p class="text-gray-700">PROPERTY: Oceanview Villa</p>
-                    <p class="text-gray-700">AMOUNT: $250,000</p>
-                    <p class="text-gray-700">Request Date: April 20, 2025</p>
-                    <p class="text-yellow-600 font-semibold bg-yellow-100 inline-block px-2 py-1 rounded">STATUS: Under Review</p>
-                    <button class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300">Cancel Request</button>
-                </div>
-                <div class="bg-white border border-orange-200 rounded-lg p-4 mb-4 shadow-sm">
-                    <p class="text-gray-700">PROPERTY: Green Valley Apartment</p>
-                    <p class="text-gray-700">AMOUNT: $150,000</p>
-                    <p class="text-gray-700">Request Date: March 15, 2025</p>
-                    <p class="text-green-600 font-semibold bg-green-100 inline-block px-2 py-1 rounded">STATUS: Approved</p>
-                    <button class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300">Download Approval Letter</button>
-                </div>
-                <div class="bg-white border border-orange-200 rounded-lg p-4 shadow-sm">
-                    <p class="text-gray-700">PROPERTY: Modern Apartment</p>
-                    <p class="text-gray-700">AMOUNT: $10,000</p>
-                    <p class="text-gray-700">Request Date: March 15, 2025</p>
-                    <p class="text-red-600 font-semibold bg-red-100 inline-block px-2 py-1 rounded">STATUS: Rejected</p>
-                    <button class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300">Apply Again</button>
-                </div>
+
+                <?php if (!empty($subscriptions)): ?>
+                    <?php foreach ($subscriptions as $sub): ?>
+                        <div class="bg-white border border-orange-200 rounded-lg p-4 mb-4 shadow-sm">
+                            <p class="text-gray-700">PLAN: <?= htmlspecialchars($sub['plan_name']) ?></p>
+                            <p class="text-gray-700">PRICE: $<?= number_format($sub['price'], 2) ?></p>
+                            <p class="text-gray-700">Start Date: <?= htmlspecialchars($sub['start_date']) ?></p>
+                            <p class="text-gray-700">End Date: <?= htmlspecialchars($sub['end_date'] ?? 'Ongoing') ?></p>
+
+                            <?php if ($sub['is_active']): ?>
+                                <p class="text-yellow-600 font-semibold bg-yellow-100 inline-block px-2 py-1 rounded">STATUS: Active</p>
+                                <form method="post" action="cancel_subscription.php" class="mt-4">
+                                    <input type="hidden" name="subscription_id" value="<?= (int)$sub['id'] ?>">
+                                    <button type="submit" 
+                                        class="w-full bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition duration-300"
+                                        onclick="return confirm('Are you sure you want to cancel this subscription?');">
+                                        Cancel Subscription
+                                    </button>
+                                </form>
+                            <?php else: ?>
+                                <p class="text-gray-600 font-semibold bg-gray-100 inline-block px-2 py-1 rounded">STATUS: Inactive</p>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p class="text-gray-700">You have no subscriptions at the moment.</p>
+                <?php endif; ?>
             </section>
         </main>
     </div>
