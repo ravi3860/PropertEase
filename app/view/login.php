@@ -34,13 +34,6 @@
           <input type="password" name="password" placeholder="Enter here" class="w-full p-3 rounded-md shadow-inner bg-yellow-50 border border-gray-200" required />
         </div>
 
-        <div class="flex justify-between items-center">
-          <label class="flex items-center gap-2" style="font-family: 'Poppins', sans-serif;">
-            <input type="checkbox" name="remember" />
-            Remember Me
-          </label>
-        </div>
-
         <div class="flex justify-center gap-4 mb-4" style="font-family: 'Poppins', sans-serif;">
           <label><input type="radio" name="role" value="member" required /> Member</label>
           <label><input type="radio" name="role" value="agent" /> Agent</label>

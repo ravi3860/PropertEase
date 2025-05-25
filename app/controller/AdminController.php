@@ -103,4 +103,21 @@ class AdminController
         header("Location: index.php?page=login");
         exit;
     }
+
+    public function loadDashboardCounts() 
+
+    {
+    require_once '../app/model/AdminModel.php';
+    $adminModel = new Admin();
+
+    $memberCount = $adminModel->countUsersByRole('member');
+    $agentCount = $adminModel->countUsersByRole('agent');
+    $adminCount = $adminModel->countUsersByRole('admin');
+
+    $_SESSION['user_counts'] = [
+        'member_count' => $memberCount,
+        'agent_count' => $agentCount,
+        'admin_count' => $adminCount
+    ];
+    }
 }

@@ -247,12 +247,15 @@ switch (strtolower($page)) {
         // Add logic to fetch agents and members
         require_once '../app/model/AgentModel.php';
         require_once '../app/model/MemberModel.php';
+        require_once '../app/controller/AdminController.php'; 
 
         $agentModel = new Agent();
         $memberModel = new Member();
+        $adminController = new AdminController();
 
         $agents = $agentModel->getAllAgents();
         $members = $memberModel->getAllMembers();
+        $adminController->loadDashboardCounts();
 
         require '../app/view/admindashboard.php';
         break;

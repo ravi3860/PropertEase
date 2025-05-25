@@ -41,6 +41,11 @@
             </nav>
         </aside>
 
+        <?php
+        // Make sure $counts is defined before rendering the dashboard
+        $counts = $_SESSION['user_counts'] ?? ['member_count' => 0, 'agent_count' => 0, 'admin_count' => 0];
+        ?>
+
         <!-- Main Content -->
         <main class="flex-1 p-8 overflow-y-auto">
             <!-- Dashboard Section -->
@@ -48,30 +53,33 @@
                 <h1 class="text-3xl font-bold text-black mb-6">Welcome to the Admin Dashboard!</h1>
                 <p class="text-gray-600 mb-6">Updated: Saturday, May 24, 2025, 01:01 PM +0530</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
                     <div class="bg-white p-6 rounded-2xl shadow-lg transform hover:scale-105 transition duration-300">
                         <div class="flex items-center space-x-4">
                             <i class="fas fa-users text-3xl text-yellow-500"></i>
                             <div>
                                 <h3 class="text-lg font-semibold text-black">Members</h3>
-                                <p class="text-3xl font-bold text-black">150</p>
+                                <p class="text-3xl font-bold text-black"><?= htmlspecialchars($counts['member_count']); ?></p>
                             </div>
                         </div>
                     </div>
+
                     <div class="bg-white p-6 rounded-2xl shadow-lg transform hover:scale-105 transition duration-300">
                         <div class="flex items-center space-x-4">
                             <i class="fas fa-user-tie text-3xl text-yellow-500"></i>
                             <div>
                                 <h3 class="text-lg font-semibold text-black">Agents</h3>
-                                <p class="text-3xl font-bold text-black">45</p>
+                                <p class="text-3xl font-bold text-black"><?= htmlspecialchars($counts['agent_count']); ?></p>
                             </div>
                         </div>
                     </div>
+
                     <div class="bg-white p-6 rounded-2xl shadow-lg transform hover:scale-105 transition duration-300">
                         <div class="flex items-center space-x-4">
                             <i class="fas fa-user-shield text-3xl text-yellow-500"></i>
                             <div>
                                 <h3 class="text-lg font-semibold text-black">Admins</h3>
-                                <p class="text-3xl font-bold text-black">5</p>
+                                <p class="text-3xl font-bold text-black"><?= htmlspecialchars($counts['admin_count']); ?></p>
                             </div>
                         </div>
                     </div>

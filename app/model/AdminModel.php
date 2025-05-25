@@ -94,4 +94,26 @@ class Admin
 
         return $stmt->execute();
     }
+
+    public function countUsersByRole($role) 
+    {
+        switch ($role) {
+            case 'member':
+                $table = 'member';
+                break;
+            case 'agent':
+                $table = 'agent';
+                break;
+            case 'admin':
+                $table = 'admin';
+                break;
+            default:
+                return 0; 
+        }
+
+        $stmt = $this->conn->prepare("SELECT COUNT(*) as count FROM $table");
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? (int)$result['count'] : 0;
+    }
 }

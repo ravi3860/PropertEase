@@ -731,6 +731,10 @@
   .rounded-xl {
     border-radius: var(--radius-xl);
   }
+  .rounded-t-xl {
+    border-top-left-radius: var(--radius-xl);
+    border-top-right-radius: var(--radius-xl);
+  }
   .rounded-tl-3xl {
     border-top-left-radius: var(--radius-3xl);
   }
