@@ -57,7 +57,7 @@ switch (strtolower($page)) {
 
     case 'login_submit':
         require '../app/controller/loginController.php';
-        (new LoginController())->login(); // handles everything
+        (new LoginController())->login(); // handles login logic
         break;
 
     case 'logout':
