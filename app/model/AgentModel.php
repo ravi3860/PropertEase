@@ -50,7 +50,7 @@ class Agent
 
         $stmt = $this->conn->prepare($query);
 
-        // hash once, store in a variable
+        // password hash
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         $stmt->bindParam(':username', $username);
