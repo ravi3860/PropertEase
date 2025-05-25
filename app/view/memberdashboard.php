@@ -95,7 +95,7 @@
                     <p class="text-gray-600 text-sm flex-grow mb-4 line-clamp-3"><?= htmlspecialchars($property['description']) ?></p>
 
                     <div class="space-y-2">
-                        <form method="post" action="index.php?page=viewproperty">
+                        <form method="post" action="index.php?page=browseproperties">
                         <input type="hidden" name="id" value="<?= $property['id'] ?>">
                         <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white py-2 rounded-lg font-semibold transition">View</button>
                         </form>
